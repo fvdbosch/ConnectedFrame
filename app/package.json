@@ -1,0 +1,45 @@
+{
+  "name": "ConnectedFrame",
+  "version": "0.0.1",
+  "description": "electronJS-based resin connected picture frame",
+  "main": "main.js",
+  "scripts": {
+    "dev": "NODE_ENV=development electron .",
+    "lint": "eslint .",
+    "start": "NODE_ENV=production startx ./node_modules/electron/dist/electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fvdbosch/connectedframe.git"
+  },
+  "keywords": [
+    "resin",
+    "io",
+    "electron",
+    "js",
+    "raspberry",
+    "pi",
+    "kiosk",
+    "picture",
+    "frame"
+  ],
+  "dependencies": {
+    "electron": "^1.4.15",
+    "electron-rebuild": "^1.5.7"
+  },
+  "author": "Frederick Vandenbosch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/fvdbosch/connectedframe/issues"
+  },
+  "homepage": "https://github.com/fvdbosch/connectedframe#readme",
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": true
+  },
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
