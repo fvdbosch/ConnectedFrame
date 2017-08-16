@@ -39,9 +39,6 @@ WORKDIR /usr/src/app
 # Move package.json to filesystem
 COPY ./package.json ./
 
-# Move app to filesystem
-COPY ./app ./
-
 ## uncomment if you want systemd
 ENV INITSYSTEM on
 
