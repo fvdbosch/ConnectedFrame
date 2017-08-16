@@ -1,26 +1,19 @@
 {
   "name": "connectedframe",
-  "version": "0.1.0",
-  "description": "tkinter connected frame",
+  "version": "0.0.1",
+  "description": "Tkinter Connected Frame",
   "main": "connectedframe.py",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/resin-io/resin-electronjs.git"
+    "type": "git"
   },
   "keywords": [
-    "resin",
-    "io",
+    "resin.io",
+    "python",
     "tkinter",
-    "python"
+    "picture",
+    "frame"
   ],
-  "author": "Frederick Vandenbosch",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/resin-io/resin-electronjs/issues"
-  },
-  "homepage": "https://github.com/resin-io/resin-electronjs#readme",
-  "jshintConfig": {
-    "esversion": 6,
-    "strict": true
-  },
+  "author": "Frederick Vandenbosch <f.vdbosch@gmail.com>",
+  "homepage": "http://frederickvandenbosch.be/?p=",
+  "license": "ISC"
 }
