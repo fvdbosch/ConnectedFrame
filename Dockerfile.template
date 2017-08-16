@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y \
   libssh-4 \
   fbset \
   libexpat-dev \
-  python-imaging-tk && rm -rf /var/lib/apt/lists/*
+  python-imaging-tk \
+  unzip && rm -rf /var/lib/apt/lists/*
 
 # Set Xorg and FLUXBOX preferences
 RUN mkdir ~/.fluxbox
