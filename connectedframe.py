@@ -97,7 +97,7 @@ def initialize():
 	image_list = list_images()
 	carrousel()
 
-initialize()
+
 
 root = Tk()
 root.title('Connected Frame')
@@ -119,7 +119,7 @@ right_column.grid(row=0, column=2, sticky="nsew")
 
 next_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/next.png"))
 previous_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/previous.png"))
-play_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/play.png"))
+play_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/pause.png"))
 like_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/like.png"))
 
 previous_button = Button(left_column, image=previous_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=previous_image)
@@ -136,5 +136,7 @@ next_button.pack(fill=BOTH, expand=1)
 center_label.pack(side="bottom", fill=BOTH, expand=1)
 play_button.pack(fill=BOTH, expand=1)
 like_button.pack(fill=BOTH, expand=1)
+
+initialize()
 
 root.mainloop()
