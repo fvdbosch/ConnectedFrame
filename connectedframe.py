@@ -95,9 +95,9 @@ def initialize():
 	download_images(dropbox_link)
 	resize_images()
 	image_list = list_images()
-	carrousel()
 
 
+initialize()
 
 root = Tk()
 root.title('Connected Frame')
@@ -137,6 +137,6 @@ center_label.pack(side="bottom", fill=BOTH, expand=1)
 play_button.pack(fill=BOTH, expand=1)
 like_button.pack(fill=BOTH, expand=1)
 
-initialize()
+carrousel()
 
 root.mainloop()
