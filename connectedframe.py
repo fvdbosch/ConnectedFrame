@@ -77,11 +77,11 @@ def play_pause():
 	play_button.configure(image=img)
 	play_button.image = img
 
-def carrousel(self):
+def carrousel():
 	if(carrousel_status):
 		next_image()
 
-	self.after(5000, carrousel)
+	root.after(5000, carrousel)
 
 
 def update_image(image_path):
@@ -95,7 +95,7 @@ def initialize():
 	download_images(dropbox_link)
 	resize_images()
 	image_list = list_images()
-	carrousel(self)
+	carrousel()
 
 initialize()
 
