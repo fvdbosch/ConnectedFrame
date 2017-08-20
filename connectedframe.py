@@ -9,6 +9,7 @@ putenv("DISPLAY",":0.0")
 
 dropbox_link = "https://www.dropbox.com/sh/vhy51qtdt18nr0a/AACmd_XT8PITPrFDi0UvaEFla?dl=1"
 base_path = "/usr/src/app/images/"
+carrousel_status = True
 
 image_index = 0
 image_list = []
@@ -63,6 +64,20 @@ def next_image():
 
 	update_image(image_path)
 
+def carrousel():
+	global carrousel_status
+
+	carrousel_status = not carrousel_status
+
+	if(carrousel_status):
+		img = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/pause.png"))
+	else:
+		img = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/play.png"))
+	
+	play_button.configure(image=img)
+	play_button.image = img
+
+
 def update_image(image_path):
 	img = ImageTk.PhotoImage(Image.open(image_path))
 	center_label.configure(image=img)
@@ -102,7 +117,7 @@ like_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/like.png"))
 
 previous_button = Button(left_column, image=previous_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=previous_image)
 next_button = Button(left_column, image=next_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=next_image)
-play_button = Button(right_column, image=play_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0)
+play_button = Button(right_column, image=play_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=carrousel)
 like_button = Button(right_column, image=like_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0)
 
 center_image = Image.open(image_list[0])
@@ -114,7 +129,5 @@ next_button.pack(fill=BOTH, expand=1)
 center_label.pack(side="bottom", fill=BOTH, expand=1)
 play_button.pack(fill=BOTH, expand=1)
 like_button.pack(fill=BOTH, expand=1)
-
-
 
 root.mainloop()
