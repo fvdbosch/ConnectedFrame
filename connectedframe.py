@@ -64,7 +64,7 @@ def next_image():
 
 	update_image(image_path)
 
-def carrousel():
+def play_pause():
 	global carrousel_status
 
 	carrousel_status = not carrousel_status
@@ -76,6 +76,12 @@ def carrousel():
 	
 	play_button.configure(image=img)
 	play_button.image = img
+
+def carrousel(self):
+	if(carrousel_status):
+		next_image()
+
+	self.after(5000, carrousel)
 
 
 def update_image(image_path):
@@ -89,6 +95,7 @@ def initialize():
 	download_images(dropbox_link)
 	resize_images()
 	image_list = list_images()
+	carrousel()
 
 initialize()
 
@@ -117,7 +124,7 @@ like_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/like.png"))
 
 previous_button = Button(left_column, image=previous_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=previous_image)
 next_button = Button(left_column, image=next_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=next_image)
-play_button = Button(right_column, image=play_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=carrousel)
+play_button = Button(right_column, image=play_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=play_pause)
 like_button = Button(right_column, image=like_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0)
 
 center_image = Image.open(image_list[0])
