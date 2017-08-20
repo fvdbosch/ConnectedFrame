@@ -95,7 +95,7 @@ def initialize():
 	download_images(dropbox_link)
 	resize_images()
 	image_list = list_images()
-	carrousel()
+	carrousel(self)
 
 initialize()
 
