@@ -90,17 +90,16 @@ def update_image(image_path):
 
 def initialize():
 	global image_list, carrousel_status
+	current_carrousel_status = carrousel_status
 	carrousel_status = False
 
 	download_images(dropbox_link)
 	resize_images()
 	image_list = list_images()
 
-	play_pause()
+	carrousel_status = current_carrousel_status
 
 	root.after(60*1000, initialize)
-
-
 
 root = Tk()
 root.title('Connected Frame')
