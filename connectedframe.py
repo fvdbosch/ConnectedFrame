@@ -100,13 +100,15 @@ def initialize():
 
 	root.after(60*1000, initialize)
 
-initialize()
+
 
 root = Tk()
 root.title('Connected Frame')
 root.geometry('{}x{}'.format(800, 480))
 root.attributes("-fullscreen", True)
 root.config(cursor='none')
+
+initialize()
 
 left_column = Frame(root, bg='black', width=80, height=480)
 center_column = Frame(root, bg='black', width=640, height=480)
