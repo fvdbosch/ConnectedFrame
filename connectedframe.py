@@ -81,8 +81,7 @@ def carrousel():
 	if(carrousel_status):
 		next_image()
 
-	root.after(5000, carrousel)
-
+	root.after(15000, carrousel)
 
 def update_image(image_path):
 	img = ImageTk.PhotoImage(Image.open(image_path))
@@ -90,12 +89,16 @@ def update_image(image_path):
 	center_label.image = img
 
 def initialize():
-	global image_list
+	global image_list, carrousel_status
+	carrousel_status = False
 
 	download_images(dropbox_link)
 	resize_images()
 	image_list = list_images()
 
+	play_pause()
+
+	root.after(60*1000, initialize)
 
 initialize()
 
