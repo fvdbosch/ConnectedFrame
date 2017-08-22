@@ -5,8 +5,6 @@ from os import putenv, getenv, system
 from PIL import Image, ImageTk 
 from glob import glob
 
-#putenv("DISPLAY",":0.0")
-
 dropbox_link = getenv("DROPBOX_LINK")
 download_interval = int(getenv("DOWNLOAD_INTERVAL_HOURS")) * 60 * 60 * 1000
 carrousel_interval = int(getenv("CARROUSEL_INTERVAL_SECONDS")) * 1000
@@ -15,6 +13,7 @@ base_path = "/usr/src/app/images/"
 carrousel_status = True
 image_index = 0
 image_list = []
+initial_init = True
 
 def download_images(url):
 	archive = base_path + "temp.zip"
@@ -91,7 +90,7 @@ def update_image(image_path):
 	center_label.image = img
 
 def initialize():
-	global image_list, carrousel_status
+	global image_list, carrousel_status, initial_init
 	current_carrousel_status = carrousel_status
 	carrousel_status = False
 
@@ -101,7 +100,11 @@ def initialize():
 
 	carrousel_status = current_carrousel_status
 
-	#root.after(download_interval, initialize)
+	if(initial_init):
+		initial_init = False
+		root.after(1000, initialize)
+	else:
+		root.after(download_interval, initialize)
 
 root = Tk()
 root.title('Connected Frame')
