@@ -101,7 +101,7 @@ def initialize():
 
 	carrousel_status = current_carrousel_status
 
-	root.after(download_interval, initialize)
+	#root.after(download_interval, initialize)
 
 root = Tk()
 root.title('Connected Frame')
