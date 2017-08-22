@@ -8,8 +8,8 @@ from glob import glob
 #putenv("DISPLAY",":0.0")
 
 dropbox_link = getenv("DROPBOX_LINK")
-download_interval = getenv("DOWNLOAD_INTERVAL_HOURS") * 60 * 60 * 1000
-carrousel_interval = getenv("CARROUSEL_INTERVAL_SECONDS") * 1000
+download_interval = int(getenv("DOWNLOAD_INTERVAL_HOURS")) * 60 * 60 * 1000
+carrousel_interval = int(getenv("CARROUSEL_INTERVAL_SECONDS")) * 1000
 
 base_path = "/usr/src/app/images/"
 carrousel_status = True
