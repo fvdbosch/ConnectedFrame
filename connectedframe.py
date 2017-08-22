@@ -8,6 +8,8 @@ from glob import glob
 dropbox_link = getenv("DROPBOX_LINK")
 download_interval = int(getenv("DOWNLOAD_INTERVAL_HOURS")) * 60 * 60 * 1000
 carrousel_interval = int(getenv("CARROUSEL_INTERVAL_SECONDS")) * 1000
+frame_owner = getenv("FRAME_OWNER")
+ifttt_key = getenv("IFTTT_KEY")
 
 base_path = "/usr/src/app/images/"
 carrousel_status = True
@@ -106,6 +108,11 @@ def initialize():
 	else:
 		root.after(download_interval, initialize)
 
+def send_event():
+	command = "curl -X POST -H \"Content-Type: application/json\" -d '{\"value1\":\"" + frame_owner + "\",\"value2\":\"" + image_list[image_index] + "\"}' https://maker.ifttt.com/trigger/connectedframe_like/with/key/" + ifttt_key
+
+	system(command)
+
 root = Tk()
 root.title('Connected Frame')
 root.geometry('{}x{}'.format(800, 480))
@@ -134,7 +141,7 @@ like_icon = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/like.png"))
 previous_button = Button(left_column, image=previous_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=previous_image)
 next_button = Button(left_column, image=next_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=next_image)
 play_button = Button(right_column, image=play_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=play_pause)
-like_button = Button(right_column, image=like_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0)
+like_button = Button(right_column, image=like_icon, borderwidth=0, background="black", foreground="white", activebackground="black", activeforeground="white", highlightthickness=0, command=send_event)
 
 center_image = Image.open(image_list[0])
 center_photo = ImageTk.PhotoImage(center_image)
