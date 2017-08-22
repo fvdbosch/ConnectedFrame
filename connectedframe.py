@@ -5,9 +5,9 @@ from os import putenv, getenv, system
 from PIL import Image, ImageTk 
 from glob import glob
 
-putenv("DISPLAY",":0.0")
+#putenv("DISPLAY",":0.0")
 
-dropbox_link = getenv("DROPBOX_LINK") #"https://www.dropbox.com/sh/vhy51qtdt18nr0a/AACmd_XT8PITPrFDi0UvaEFla?dl=1"
+dropbox_link = getenv("DROPBOX_LINK")
 download_interval = getenv("DOWNLOAD_INTERVAL_HOURS") * 60 * 60 * 1000
 carrousel_interval = getenv("CARROUSEL_INTERVAL_SECONDS") * 1000
 
