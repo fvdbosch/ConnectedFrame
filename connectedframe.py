@@ -91,6 +91,10 @@ def update_image(image_path):
 	center_label.configure(image=img)
 	center_label.image = img
 
+	img = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/like.png"))
+	like_button.configure(image=img)
+	like_button.image = img
+
 def initialize():
 	global image_list, carrousel_status, initial_init
 	current_carrousel_status = carrousel_status
@@ -109,6 +113,10 @@ def initialize():
 		root.after(download_interval, initialize)
 
 def send_event():
+	img = ImageTk.PhotoImage(Image.open("/usr/src/app/icons/liked.png"))
+	like_button.configure(image=img)
+	like_button.image = img
+
 	command = "curl -X POST -H \"Content-Type: application/json\" -d '{\"value1\":\"" + frame_owner + "\",\"value2\":\"" + image_list[image_index] + "\"}' https://maker.ifttt.com/trigger/connectedframe_like/with/key/" + ifttt_key
 
 	system(command)
