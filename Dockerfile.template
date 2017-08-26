@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
   xorg \
   fluxbox \
   python-imaging-tk \
-  unzip && rm -rf /var/lib/apt/lists/*
+  unzip \
+  cron && rm -rf /var/lib/apt/lists/*
 
 # Set Xorg and FLUXBOX preferences
 RUN mkdir ~/.fluxbox
