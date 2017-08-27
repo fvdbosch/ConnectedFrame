@@ -1,5 +1,5 @@
-# Turn off display at 22:00 everyday 
-0 22 * * * echo 1 > /sys/class/backlight/rpi_backlight/bl_power
+# Turn off display every evening 
+0 20 * * * echo 1 > /sys/class/backlight/rpi_backlight/bl_power
 
-# Turn on display at 08:00 everyday 
-0 8 * * * echo 0 > /sys/class/backlight/rpi_backlight/bl_power
+# Turn on display every morning 
+0 6 * * * echo 0 > /sys/class/backlight/rpi_backlight/bl_power
