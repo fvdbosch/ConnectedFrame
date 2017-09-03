@@ -7,7 +7,7 @@ from glob import glob
 
 dropbox_link = getenv("DROPBOX_LINK")
 download_interval = int(getenv("DOWNLOAD_INTERVAL_HOURS")) * 60 * 60 * 1000
-carrousel_interval = int(getenv("CARROUSEL_INTERVAL_SECONDS")) * 1000
+carousel_interval = int(getenv("CAROUSEL_INTERVAL_SECONDS")) * 1000
 frame_owner = getenv("FRAME_OWNER")
 ifttt_key = getenv("IFTTT_KEY")
 
@@ -84,7 +84,7 @@ def carrousel():
 	if(carrousel_status):
 		next_image()
 
-	root.after(carrousel_interval, carrousel)
+	root.after(carousel_interval, carrousel)
 
 def update_image(image_path):
 	img = ImageTk.PhotoImage(Image.open(image_path))
